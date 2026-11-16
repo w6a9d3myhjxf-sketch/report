@@ -1,0 +1,247 @@
+<!doctype html><html lang="ja"><head><link rel="stylesheet" href="auth.css?v=49"><script src="auth.js?v=49" defer></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>日報・作業確認書 試作Ver.50</title><style>
+:root{font-family:system-ui,'Yu Gothic',sans-serif;color:#17263a;background:#f3f6fa}*{box-sizing:border-box}body{margin:0}header{background:#153451;color:white;padding:18px 24px}header h1{margin:0;font-size:22px}header small{color:#c4d7e8}.wrap{max-width:1160px;margin:auto;padding:20px}.panel{background:white;border:1px solid #d7e0e9;border-radius:12px;padding:20px;margin:0 0 16px;box-shadow:0 2px 7px #142f4910}h2{margin:0 0 14px;font-size:19px}h3{font-size:15px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}.field{display:flex;flex-direction:column;gap:5px;font-size:13px;font-weight:600}.field input,.field select,.field textarea,input,select,textarea{border:1px solid #b9c8d6;border-radius:7px;padding:9px;font:inherit;min-width:0;background:white;color:#17263a}textarea{resize:vertical}button{border:0;border-radius:7px;padding:10px 14px;background:#17649b;color:white;font-weight:700;cursor:pointer}button.secondary{background:#e8eef5;color:#17344e}button.danger{background:#fce7e7;color:#9b2b2b}.actions{display:flex;gap:8px;flex-wrap:wrap}.hint{color:#52687d;font-size:13px}.warning{background:#fff7dc;padding:10px;border-radius:8px;color:#72510b;font-size:13px}.rowedit{display:grid;grid-template-columns:120px 1.4fr 110px 110px 1.5fr 130px 95px 85px 1.2fr 42px;gap:6px;margin-bottom:7px}.rowedit input,.rowedit select{width:100%;font-size:12px;padding:8px 5px}.roster{display:grid;grid-template-columns:1.2fr 95px 110px 110px 1.6fr 42px;gap:7px;margin:7px 0}.price-head{display:grid;grid-template-columns:1.3fr 1fr 90px 42px;gap:7px;font-size:12px;font-weight:bold;color:#52687d;margin:6px 0}.price-head span{padding-left:6px}.simple{display:grid;grid-template-columns:1.3fr 1fr 90px 42px;gap:7px;margin:7px 0}.timegrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.timeline{display:flex;height:56px;position:relative;touch-action:none;user-select:none;border-radius:7px;border:1px solid #8d9aaa;margin:12px 0 4px;cursor:crosshair}.time-handle{position:absolute;top:-3px;height:60px;width:32px;transform:translateX(-50%);z-index:4;cursor:ew-resize;touch-action:none;display:flex;align-items:center;justify-content:center}.time-handle:before{content:"";height:48px;width:5px;border-radius:4px;background:#17263a;border:2px solid white;box-shadow:0 0 0 1px #17263a}.time-handle.start:after,.time-handle.end:after{position:absolute;top:-25px;font-size:11px;font-weight:bold;color:white;background:#17344e;border-radius:5px;padding:2px 5px;white-space:nowrap}.time-handle.start:after{content:"開始"}.time-handle.end:after{content:"終了"}.kindbox{grid-column:1/-2;background:#f5f8fc;border:1px solid #dce5ed;border-radius:7px;padding:9px;display:flex;flex-wrap:wrap;gap:7px 14px}.kindbox label{font-size:12px;white-space:nowrap;display:flex;align-items:center;gap:3px}.kindbox input{width:17px;height:17px;accent-color:#17649b}.workcard{padding:8px;margin-bottom:12px;background:#f9fbfd;border:1px solid #e1e7ed;border-radius:9px}.workcard .rowedit{margin-bottom:4px}.segment{position:relative;min-width:0}.segment.day{background:#f4c76d}.segment.night{background:#496c9b}.segment.outside{background:#cbd2da}.segment.active{box-shadow:none}.time-handle.nightstart:before,.time-handle.nightend:before{background:#496c9b;box-shadow:0 0 0 1px #24476e}.time-handle.nightstart:after,.time-handle.nightend:after{position:absolute;bottom:-25px;font-size:10px;font-weight:bold;color:white;background:#355b91;border-radius:5px;padding:2px 4px;white-space:nowrap}.time-handle.nightstart:after{content:"夜開始"}.time-handle.nightend:after{content:"夜終了"}.time-handle.nightstart,.time-handle.nightend{z-index:5}.timeline{margin-top:26px;margin-bottom:28px}.time-handle:focus-visible{outline:3px solid #e68b19;outline-offset:2px}.ticks{display:flex;justify-content:space-between;font-size:11px;color:#61748a}.stat{display:flex;gap:10px;flex-wrap:wrap}.stat b{background:#eef4fa;border-radius:8px;padding:10px 16px}.stat span{font-size:12px;color:#586e82;display:block}.split{display:grid;grid-template-columns:1fr 1fr;gap:12px}.printpage{display:none}.printpage h1{text-align:center;font-size:20px;letter-spacing:5px}.printpage table{border-collapse:collapse;width:100%;font-size:10px}.printpage td,.printpage th{border:1px solid #333;padding:5px;vertical-align:top;overflow-wrap:anywhere}.printpage th{background:#edf0f3}.printpage .meta{font-size:12px;margin:10px 0}.printpage .blank{height:55px}.printpage .stamp{border:2px solid #bb3636;color:#bb3636;border-radius:50%;width:55px;height:55px;display:inline-flex;align-items:center;justify-content:center;font-size:14px}.sectiontitle{margin:15px 0 6px;font-weight:bold}.printpage .right{text-align:right}.mini{font-size:11px;color:#63758a}@media(max-width:900px){.rowedit{grid-template-columns:repeat(2,minmax(0,1fr));background:#f3f6fa;padding:8px;border-radius:8px}.roster{grid-template-columns:repeat(2,minmax(0,1fr))}.timegrid{grid-template-columns:repeat(2,1fr)}}@media print{@page{size:A4 landscape;margin:10mm}body{background:white}header,.wrap{display:none!important}.printpage{display:block!important;page-break-after:always}.printpage:last-child{page-break-after:auto}.printpage table{font-size:9px}.printpage td,.printpage th{padding:4px}}
+
+/* Ver.5: つまみ上に時刻を常時表示。開始・終了は上段、夜間境界は下段。 */
+.time-handle:after{display:none!important}
+.time-handle .handle-label{position:absolute;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:1px;white-space:nowrap;background:#17344e;color:white;border-radius:6px;padding:3px 7px;font-size:11px;line-height:1.2;box-shadow:0 1px 4px #0003;pointer-events:none}
+.time-handle .handle-label small{font-size:10px;font-weight:600}
+.time-handle .handle-label strong{font-size:14px;font-variant-numeric:tabular-nums}
+.time-handle.start .handle-label,.time-handle.end .handle-label{bottom:calc(100% + 3px)}
+.time-handle.nightstart .handle-label,.time-handle.nightend .handle-label{top:calc(100% + 3px);background:#355b91}
+.timeline{margin-top:66px;margin-bottom:69px}
+.time-handle{width:38px}
+.time-handle:focus-visible .handle-label{outline:3px solid #e68b19}
+@media(max-width:600px){.time-handle .handle-label{padding:3px 4px}.time-handle .handle-label strong{font-size:12px}.time-handle .handle-label small{font-size:9px}}
+
+button:disabled{opacity:.55;cursor:wait}.pdfbar{position:sticky;top:0;z-index:20;background:#fff;padding:12px;border-bottom:1px solid #d7e0e9}.pdf-status{white-space:pre-wrap;line-height:1.6}.confirm-card{background:#f6f9fc;border:1px solid #d7e0e9;border-radius:8px;padding:12px;margin:10px 0}.confirm-period{display:grid;grid-template-columns:70px 1.1fr 1fr 1fr;gap:8px;margin-top:8px;align-items:center}.confirm-period input,.confirm-period select{width:100%}.pdf-preview{width:min(1100px,96vw);max-height:94vh;border:1px solid #adbccb;border-radius:12px;padding:0}.pdf-preview::backdrop{background:#14253699}.pdf-preview iframe{width:100%;height:75vh;border:0}.pdf-preview .actions{padding:12px;align-items:center}.pdf-preview a{color:#075b9b;font-weight:700}.section-intro{padding:10px 14px;border-left:4px solid #17649b;background:#edf5fc}.smalllink{color:#075b9b}.footer-actions{margin-top:12px}@media(max-width:650px){.wrap{padding:10px}.panel{padding:14px}.split{grid-template-columns:1fr}.confirm-period{grid-template-columns:55px 1fr}.confirm-period input{grid-column:2}.actions button{flex-grow:1}.rowedit{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important}header{padding:16px}.pdf-preview iframe{height:65vh}} 
+
+/* Ver.50: timeline-first layout and matching day/night totals. */
+:root{--timeline-day:#f4c76d;--timeline-night:#496c9b;--timeline-idle:#eee7f4}
+.segment.day,.stat b.day-total{background:var(--timeline-day);color:#3e2b08}
+.segment.night,.stat b.night-total{background:var(--timeline-night);color:#fff}
+.segment.outside{background:var(--timeline-idle)}
+.stat b.day-total span{color:#50370a}.stat b.night-total span{color:#fff}
+.summary-row{display:flex;align-items:stretch;flex-wrap:wrap;gap:12px;margin-top:8px}
+.summary-row .stat{display:flex;gap:10px;flex-wrap:wrap;flex:1 1 auto}
+.summary-row .stat b{min-width:110px;display:flex;flex-direction:column;justify-content:center}
+.summary-row .reset-times{margin-left:auto;background:#f8fafc;border:1px solid #b9c8d6;color:#17344e;align-self:stretch}
+.timeline-area{padding:0 18px;margin-top:14px}.timeline-legend{margin:10px 0 16px}
+@media(max-width:650px){.timeline-area{padding:0 12px}.summary-row .stat{width:100%;gap:6px}.summary-row .stat b{flex:1;min-width:0;padding:10px 8px}.summary-row .reset-times{flex:0 1 auto;margin-left:auto}}
+
+/* Ver.50: live time display and reset share the date toolbar. */
+.timeline-toolbar{display:flex;gap:12px;align-items:stretch;flex-wrap:wrap;margin:8px 0 18px}
+.timeline-toolbar .timeline-date{width:170px;flex:0 0 170px;justify-content:center}
+.timeline-toolbar .summary-row{margin:0;flex:1;display:flex;align-items:stretch;gap:12px}
+.timeline-toolbar .stat{flex:1;gap:8px;align-items:stretch;flex-wrap:wrap}
+.timeline-toolbar .stat b{min-width:76px;padding:9px 12px;font-variant-numeric:tabular-nums}
+.timeline-toolbar .stat b.range-total{min-width:137px;background:#f8fafc;border:1px solid #cbd5e1}
+.timeline-toolbar .stat b.all-total{background:#d5efdf;color:#16492b;border:1px solid #9bcbae}
+.timeline-toolbar .stat b.all-total span{color:#245d3b}
+.timeline-toolbar .reset-times{font-size:12px;max-width:230px;margin-left:auto}
+@media(max-width:1000px){.timeline-toolbar .summary-row{flex-wrap:wrap}.timeline-toolbar .stat{min-width:300px}.timeline-toolbar .reset-times{margin-left:auto;min-height:42px}}
+@media(max-width:650px){.timeline-toolbar .timeline-date{width:100%;flex-basis:100%}.timeline-toolbar .summary-row{width:100%;flex-basis:100%}.timeline-toolbar .stat{min-width:0;width:100%}.timeline-toolbar .stat b{min-width:70px;flex:1}.timeline-toolbar .stat b.range-total{min-width:100%;flex-basis:100%}.timeline-toolbar .reset-times{flex:none;max-width:none}}
+
+/* Ver.50: total rest is deducted from the combined duration only. */
+.break-controls{display:flex;align-items:center;gap:10px;flex:0 0 auto}
+.break-check{display:flex;align-items:center;gap:6px;white-space:nowrap;font-size:13px;font-weight:600}
+.break-check input{width:19px;height:19px;accent-color:#17649b;margin:0}
+.break-total{width:126px}.break-total input:disabled{background:#f1f5f9;color:#8896a5}
+.break-error{color:#a12525;font-size:13px;margin:8px 0}.break-error:empty{display:none}
+.timeline-toolbar .summary-row{min-width:0}.timeline-toolbar .stat b{padding:9px 10px}
+@media(max-width:1150px){.timeline-toolbar .summary-row{flex-basis:100%}.timeline-toolbar .stat{width:auto}}
+@media(max-width:650px){.break-controls{flex:1 1 100%;justify-content:flex-start}.break-total{width:150px}}
+
+/* Ver.50: five-minute controls with one-minute direct entry. */
+.break-total{width:200px}.rest-stepper{display:flex;align-items:center;gap:5px}
+.rest-stepper button{min-width:43px;min-height:40px;padding:8px;font-size:13px}
+.rest-stepper input{width:78px;min-width:0;flex:1;-moz-appearance:textfield;appearance:textfield}
+.rest-stepper input::-webkit-outer-spin-button,.rest-stepper input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+@media(max-width:650px){.break-total{width:200px}}
+
+/* Ver.50: concise work labels sit directly above each field. */
+.work-field{display:flex;flex-direction:column;gap:5px;min-width:0;font-size:12px;font-weight:600}
+.work-field>span{line-height:1.4;white-space:nowrap}
+.workcard .rowedit>.danger{align-self:end;min-height:34px}
+
+/* Ver.50: company name plus automatic numeric headcount. */
+.crew-row{grid-template-columns:minmax(180px,1.3fr) minmax(80px,160px) 42px;align-items:end}
+.crew-row input[readonly]{background:#f1f5f9;font-variant-numeric:tabular-nums}
+@media(max-width:650px){.crew-row{grid-template-columns:minmax(0,1fr) 80px 38px}}
+
+.worker-company-summary{margin:0 0 16px;padding:0 0 14px;border-bottom:1px solid #d7e0e9}
+.worker-scroll{overflow-x:auto}.worker-table{width:100%;min-width:1050px;border-collapse:collapse;table-layout:fixed}.worker-table th,.worker-table td{border:1px solid #ccd5df;padding:6px;vertical-align:middle}.worker-table th{background:#edf3f8;font-size:12px}.worker-table input,.worker-table select{width:100%;min-width:0;box-sizing:border-box;font-size:13px}.worker-table .stack{display:grid;gap:6px}.worker-table .period{display:block;text-align:center;padding:9px 0}.worker-table .person-note{margin-top:6px}.worker-table .worker-time-label{font-size:10px;line-height:1.2}.time-calculator{padding:14px;margin-bottom:16px;background:#f1f6fb;border:1px solid #ccd5df;border-radius:8px}.time-calculator .grid{grid-template-columns:repeat(3,minmax(0,1fr));margin-bottom:10px}.stat .duration-value{display:flex;align-items:baseline;gap:2px;white-space:nowrap;font-variant-numeric:tabular-nums}.stat .duration-value small{font-size:.48em;line-height:1;font-weight:500;margin-right:3px;align-self:baseline}#priceCalcMessage:empty{display:none}#pdfStatus:empty{display:none}</style><link rel="stylesheet" href="save-terminal.css?v=50"><script src="save-terminal.js?v=50" defer></script></head><body><header><h1>作業日報・作業確認書</h1><small>Prototype Ver.50 ／ 試験運用中</small></header><main class="wrap"><div class="panel"><div class="actions"><a href="photos.html" style="display:inline-block;padding:10px 14px;border-radius:7px;background:#17637a;color:white;text-decoration:none">工事写真帳</a><button onclick="newDoc()">新規作成</button><button onclick="save()">端末に保存</button><button class="secondary" onclick="exportJSON()">バックアップ</button><button class="secondary" onclick="document.getElementById('importfile').click()">リストレージ</button><input id="importfile" type="file" accept=".json" hidden onchange="importJSON(event)"><button onclick="printDoc()">日報＋確認書 PDF作成</button><button class="secondary" onclick="clearInputsToDefaults()">入力をクリア</button></div></div>
+<section class="panel" id="timePanel"><h2>1. 計上時刻タイムライン</h2><div class="timeline-toolbar"><label class="field timeline-date">タイムラインの表示日<input type="date" id="timelineDate" onchange="drawTimeline()"></label><div class="break-controls"><label class="break-check"><input id="breakEnabled" type="checkbox" onchange="updateBreakControls()">休憩を入れる</label><label class="field break-total">休憩時間合計（分）<span class="rest-stepper"><button type="button" class="secondary" data-rest-step disabled onclick="adjustBreakMinutes(-5)" aria-label="休憩を5分減らす">−5</button><input id="breakMinutes" aria-label="休憩時間合計（分）" type="number" min="0" step="1" value="0" inputmode="numeric" disabled oninput="drawTimeline()" onkeydown="breakMinuteKey(event)" title="増減ボタンは5分刻み、手入力は1分単位"><button type="button" class="secondary" data-rest-step disabled onclick="adjustBreakMinutes(5)" aria-label="休憩を5分増やす">＋5</button></span></label></div><div class="summary-row"><div class="stat" id="stats"></div><button class="secondary reset-times" onclick="resetIndividualTimes()">時刻訂正解除</button></div></div><div class="timeline-area"><div class="ticks"><span>00:00</span><span>06:00</span><span>12:00</span><span>18:00</span><span>24:00</span></div><div class="timeline" id="timeline"></div></div><p id="breakError" class="break-error" role="alert"></p><div class="grid" style="margin-top:12px"><label class="field">計上開始<input type="datetime-local" id="billstart" onchange="syncTime()"></label><label class="field">計上終了<input type="datetime-local" id="billend" onchange="syncTime()"></label><label class="field">夜間開始<input type="time" id="nightstart" value="22:00" onchange="drawTimeline()"></label><label class="field">夜間終了<input type="time" id="nightend" value="06:00" onchange="drawTimeline()"></label></div><input type="hidden" id="confirmed" value="no"></section>
+<section class="panel"><h2>2. 基本情報</h2><div class="grid"><label class="field">作業日<input id="date" type="date"></label><label class="field">天候<select id="weather"><optgroup label="単独"><option>晴</option><option>曇</option><option>雨</option><option>雪</option><option>みぞれ</option><option>雹</option></optgroup><optgroup label="2つの組み合わせ"><option>晴/曇</option><option>晴/雨</option><option>曇/晴</option><option>曇/雨</option><option>雨/晴</option><option>雨/曇</option></optgroup><optgroup label="3つの組み合わせ"><option>晴/曇/雨</option><option>晴/雨/曇</option><option>曇/晴/雨</option><option>曇/雨/晴</option><option>雨/晴/曇</option><option>雨/曇/晴</option></optgroup><option>その他</option></select></label><label class="field">作業名<input id="job" value="加須管内道路保全工事業務"></label><label class="field">会社名<input id="company" value="タイヨー株式会社"></label><label class="field">一次請負会社名<input id="primary" placeholder="必要な場合のみ"></label><label class="field">作業責任者・記入者<input id="chief" placeholder="例：青木"></label><label class="field" style="align-self:end"><input aria-label="基地発" id="baseout" type="time" step="60" oninput="manualBase('baseout')" title="スライダーと連動。ここだけ個別訂正できます"></label><label class="field">基地着<input id="basein" type="time" step="60" oninput="manualBase('basein')" title="スライダーと連動。ここだけ個別訂正できます"></label></div></section>
+<section class="panel"><h2>3. 作業項目 <span class="mini">別現場は行を追加</span></h2><div id="works"></div><div class="actions"><button class="secondary" onclick="addWork()">＋ カラムを追加</button><button class="secondary" onclick="registerWorkItem()">作業項目を追加</button></div></section>
+
+<section class="panel"><h2>4. 単価項目</h2><div class="time-calculator"><h3>時間計算機</h3><div class="grid"><label class="field">昼時間<input id="priceDayTime" readonly></label><label class="field">昼の人数<input id="priceDayCount" type="number" min="0" step="1" placeholder="作業員数を使用" oninput="renderPriceCalculator()"></label><label class="field">昼の計（時間：分・人）<input id="priceDayTotal" readonly></label></div><div class="grid"><label class="field">夜時間<input id="priceNightTime" readonly></label><label class="field">夜の人数<input id="priceNightCount" type="number" min="0" step="1" placeholder="作業員数を使用" oninput="renderPriceCalculator()"></label><label class="field">夜の計（時間：分・人）<input id="priceNightTotal" readonly></label></div><p id="priceCalcMessage" class="hint" aria-live="polite"></p></div><div class="price-head"><span>単価項目名</span><span>数量</span><span>単位</span><span></span></div><div id="prices"></div><button class="secondary" onclick="addSimple('prices')">＋ カラムを追加</button></section>
+<section class="panel"><h2>5. 作業員</h2><div class="worker-company-summary"><h3>会社名・人数</h3><div id="crews"></div><button class="secondary" onclick="addSimple('crews')">＋ 会社を追加</button></div><div id="people"></div><button class="secondary" onclick="addPerson()">＋ 作業員を追加</button><div class="actions" style="margin-top:12px"><button class="secondary" onclick="registerPerson()">＋ 氏名をリストに登録</button><button class="secondary" onclick="managePeople()">氏名リストを編集</button></div><datalist id="personNames"></datalist><h3>その他労務（確認書下部）</h3><div class="grid" id="laborEditor"></div></section>
+
+
+<section class="panel"><h2>6. 使用機械・車両</h2><div id="vehicles"></div><button class="secondary" onclick="addSimple('vehicles')">＋ 車両を追加</button></section>
+<div class="split"><section class="panel"><h2>7. 使用材料</h2><div id="materials"></div><button class="secondary" onclick="addSimple('materials')">＋ 材料を追加</button></section><section class="panel"><h2>8. 発生材</h2><div id="waste"></div><button class="secondary" onclick="addSimple('waste')">＋ 発生材を追加</button></section></div>
+<div class="panel"><div class="actions"><button onclick="printDoc()">日報＋確認書 PDF作成</button><button class="secondary" onclick="save()">保存</button></div></div><section class="panel"><h2>原本PDFを出力</h2><div class="actions"><button data-pdf onclick="exportOriginalPDF('daily')">日報のみ</button><button data-pdf onclick="exportOriginalPDF('confirmation')">確認書のみ</button><button data-pdf onclick="exportOriginalPDF('both')">2帳票まとめて</button><button class="secondary" onclick="fillSample()">見本データを入れる</button></div><p id="pdfStatus" class="hint pdf-status" role="status"></p><div id="pdfLinks"></div></section></main>
+<dialog id="pdfDialog" class="pdf-preview"><div class="actions"><strong id="pdfTitle">PDF確認</strong><a id="openPDF" target="_blank" rel="noopener">PDFを別画面で開く</a><a id="savePDF">PDFを保存</a><button class="secondary" onclick="document.getElementById('pdfDialog').close()">閉じる</button></div><iframe id="pdfFrame" title="作成したPDF"></iframe></dialog>
+<div class="printpage" id="report"></div><div class="printpage" id="confirmation"></div>
+<script>
+const KINDS=['路肩','走行','追越','清掃','植栽','事故','小補修','雪氷','外販','その他'];const $=id=>document.getElementById(id),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));const fields=['date','weather','job','company','primary','chief','baseout','basein','billstart','billend','nightstart','nightend','confirmed','breakMinutes'];const SAMPLE_PEOPLE=["山田 太郎", "佐藤 健一", "鈴木 一郎", "高橋 大輔", "田中 誠", "伊藤 拓也", "渡辺 浩", "小林 直樹", "加藤 修", "吉田 和也", "山本 裕介", "中村 亮", "斎藤 正人", "松本 哲也", "井上 翔", "木村 達也", "林 健太", "清水 隆", "阿部 博之", "森田 俊介"];let personMaster=[];let baseOverrides={baseout:false,basein:false};let data={works:[],people:[],crews:[],vehicles:[],materials:[],waste:[],prices:[]};const templates={works:{route:'東北道',item:'',start:'',end:'',place:'',kind:[],manual:'',check:'合',note:'',_overrideStart:false,_overrideEnd:false},people:{name:'',role:'作業員',start:'',end:'',note:'',_overrideStart:false,_overrideEnd:false},crews:{a:'タイヨー株式会社',b:''},vehicles:{a:'',b:'',c:'1'},materials:{a:'',b:'',c:''},waste:{a:'',b:'',c:''},prices:{a:'',b:'',c:'h'}};
+let workItemMaster=[];
+try{const stored=JSON.parse(localStorage.getItem('dailyReportWorkItemMasterV1')||'[]');if(Array.isArray(stored))workItemMaster=[...new Set(stored.filter(v=>typeof v==='string').map(v=>v.trim()).filter(Boolean))];}catch{}
+function registerWorkItem(){
+ const answer=prompt('作業項目リストに登録する名称を入力してください');if(answer===null)return;
+ const name=answer.trim();if(!name)return;warnFilenameChars(name);
+ if(workItemMaster.includes(name)){alert('すでに登録されています。作業項目のリストから選択してください。');return;}
+ const next=[...workItemMaster,name];
+ try{localStorage.setItem('dailyReportWorkItemMasterV1',JSON.stringify(next));workItemMaster=next;render('works');renderConfirmEditor();}catch(e){alert('作業項目を保存できませんでした。');}
+}
+function selectWorkItem(index,value){
+ if(value==='__manual__'){const answer=prompt('この行の作業項目を入力してください（リストへの登録は「作業項目を追加」から）',data.works[index].item||'');if(answer===null){render('works');return;}value=answer.trim();}
+ change('works',index,'item',value);render('works');renderConfirmEditor();
+}
+function selectedWorkerCount(){return data.people.filter(person=>String(person.name||'').trim()).length;}
+function syncCrewCounts(){const count=String(selectedWorkerCount());for(const row of data.crews){row.b=count;delete row.c;}document.querySelectorAll('[data-crew-count]').forEach(input=>input.value=count);}
+function input(k,i,f,v){const detailLabels={vehicles:{a:'種類',b:'車番等',c:'単位'},materials:{a:'材料名',b:'規格・寸法',c:'数量'},waste:{a:'品名',b:'数量',c:'単位'}};const detailLabel=detailLabels[k]?.[f];if(detailLabel)return `<input value="${esc(v)}" placeholder="${detailLabel}" aria-label="${detailLabel}" oninput="change('${k}',${i},'${f}',this.value)">`;if(k==='crews'&&f==='b')return `<input type="number" min="0" step="1" data-crew-count readonly aria-label="人数" value="${selectedWorkerCount()}">`;if(k==='works'&&f==='item')return `<select aria-label="作業項目" onchange="selectWorkItem(${i},this.value)"><option value="">作業項目を選択</option>${workItemMaster.map(name=>`<option value="${esc(name)}" ${v===name?'selected':''}>${esc(name)}</option>`).join('')}${v&&!workItemMaster.includes(v)?`<option value="${esc(v)}" selected>${esc(v)}</option>`:''}<option value="__manual__">リスト外の項目を入力…</option></select>`;if(k==='people'&&f==='name')return `<select aria-label="作業員の氏名" onchange="selectPerson(${i},this.value)"><option value="">氏名を選択</option>${personMaster.map(n=>`<option value="${esc(n)}" ${v===n?'selected':''}>${esc(n)}</option>`).join('')}${v&&!personMaster.includes(v)?`<option value="${esc(v)}" selected>${esc(v)}（臨時）</option>`:''}<option value="__manual__">＋ リスト外の氏名を入力…</option></select>`;const opts=f==='route'?['東北道','圏央道','その他']:f==='check'?['合','否','―']:f==='role'?['責任者','作業員','交代','増員']:null;const list=opts?`<select onchange="change('${k}',${i},'${f}',this.value)">${opts.map(x=>`<option ${v===x?'selected':''}>${x}</option>`).join('')}</select>`:`<input ${['start','end'].includes(f)&&k==='works'?'type="time"':''} value="${esc(v)}" placeholder="${({a:'名称／会社',b:'車番・規格・数量',c:'単位',name:'氏名',item:'作業項目',place:'場所',kind:'工種',manual:'手順書',note:'備考'})[f]||f}" oninput="change('${k}',${i},'${f}',this.value)">`;return list}
+function selectPerson(i,v){if(v==='__manual__'){const n=prompt('臨時作業員の氏名を入力してください',data.people[i].name||'');if(n===null){render('people');return;}v=n.trim();}change('people',i,'name',v);render('people')}
+function renderPersonMaster(){const el=$('personNames');if(el)el.innerHTML=personMaster.map(n=>`<option value="${esc(n)}"></option>`).join('')}
+function registerPerson(){const n=prompt('登録する作業員の氏名を入力してください');if(n===null)return;const name=n.trim();if(!name)return;if(personMaster.includes(name))return alert('すでに登録されています');personMaster.push(name);personMaster.sort((a,b)=>a.localeCompare(b,'ja'));renderPersonMaster();persistPersonMaster();render('people')}
+function managePeople(){const before=personMaster.join('\n');const result=prompt('作業員名簿を編集（1行につき1人）。削除したい名前は行ごと消してください。',before);if(result===null)return;personMaster=[...new Set(result.split(/\r?\n/).map(x=>x.trim()).filter(Boolean))];renderPersonMaster();persistPersonMaster();render('people')}
+function persistPersonMaster(){localStorage.setItem('dailyReportPersonMasterV1',JSON.stringify(personMaster))}
+function normalizeKinds(r){if(Array.isArray(r.kind))return r.kind;if(typeof r.kind==='string'&&r.kind.trim())return r.kind.split(/[、,\s]+/).filter(Boolean);return []}
+function toggleKind(i,kind,checked){const r=data.works[i];const a=normalizeKinds(r);r.kind=checked?[...new Set([...a,kind])]:a.filter(x=>x!==kind)}
+function render(k){if(k==='crews')syncCrewCounts();let html='';data[k].forEach((r,i)=>{let keys=Object.keys(templates[k]).filter(f=>!f.startsWith('_')&&!(k==='works'&&f==='kind'));const workLabels={route:'路線',item:'作業項目',start:'始業',end:'終業',place:'作業場所',manual:'手順書No.',check:'確認',note:'備考'};const row=keys.map(f=>k==='works'?`<label class="work-field"><span>${workLabels[f]||f}</span>${input(k,i,f,r[f])}</label>`:k==='crews'?`<label class="field"><span>${f==='a'?'会社名':'人数'}</span>${input(k,i,f,r[f])}</label>`:input(k,i,f,r[f])).join('');if(k==='works'){const selected=normalizeKinds(r);const check=KINDS.map(v=>`<label><input type="checkbox" ${selected.includes(v)?'checked':''} onchange="toggleKind(${i},'${v}',this.checked)">${v}</label>`).join('');html+=`<div class="workcard"><div class="rowedit" style="grid-template-columns:120px 1.4fr 110px 110px 1.5fr 95px 85px 1.2fr 42px">${row}<button class="danger" title="削除" onclick="del('${k}',${i})">×</button></div><div class="kindbox"><strong style="font-size:12px">工種区分</strong>${check}</div></div>`}else{html+=`<div class="${k==='people'?'roster':k==='crews'?'simple crew-row':'simple'}">${k==='prices'?row.replace('placeholder="名称／会社"','placeholder="単価項目名"').replace('placeholder="車番・規格・数量"','placeholder="数量"'):row}<button class="danger" title="削除" onclick="del('${k}',${i})">×</button></div>`}});$(k).innerHTML=html}
+function invalidFilenameChars(value){return String(value??'').match(/[\\/:*?"<>|\x00-\x1f]/g)||[]}
+function warnFilenameChars(value,previous=''){const before=invalidFilenameChars(previous),now=invalidFilenameChars(value);if(now.some(c=>now.filter(x=>x===c).length>before.filter(x=>x===c).length))alert('ファイル名に使えない記号が含まれています：'+[...new Set(now)].join(' ')+'\nバックアップ保存時は「_」に置き換えます。')}
+function backupFilenamePart(value){return Array.from(String(value??'').trim().replace(/[\\/:*?"<>|\x00-\x1f]/g,'_').replace(/[. ]+$/g,'')).slice(0,55).join('')}
+function backupFilename(){const first=data.works[0]||{};return [$('date').value||'日付未入力',backupFilenamePart(first.item)||'作業項目未入力',backupFilenamePart(first.place)||'作業場所未入力'].join('_')+'.json'}
+function change(k,i,f,v){if(k==='works'&&['item','place'].includes(f))warnFilenameChars(v,data[k][i][f]);data[k][i][f]=v;if((k==='works'||k==='people')&&(f==='start'||f==='end'))data[k][i][f==='start'?'_overrideStart':'_overrideEnd']=true}function manualBase(id){baseOverrides[id]=true}function addWork(){data.works.push({...templates.works,start:$('billstart').value.slice(11,16),end:$('billend').value.slice(11,16)});render('works')}function addPerson(){data.people.push({...templates.people,start:$('billstart').value.slice(11,16),end:$('billend').value.slice(11,16)});render('people')}function addSimple(k){data[k].push({...templates[k]});render(k)}function del(k,i){data[k].splice(i,1);render(k)}function state(){let obj={};fields.forEach(f=>obj[f]=$(f).value);return {...obj,rows:data,baseOverrides,personMaster}}function load(obj){fields.forEach(f=>{if(obj[f]!=null)$(f).value=obj[f]});data={...data,...(obj.rows||{})};if(Array.isArray(obj.personMaster)&&obj.personMaster.length){personMaster=[...new Set(obj.personMaster.filter(x=>typeof x==='string'))];persistPersonMaster();renderPersonMaster()}baseOverrides={baseout:false,basein:false,...(obj.baseOverrides||{})};data.works.forEach(r=>r.kind=normalizeKinds(r));if($('billstart').value)$('timelineDate').value=$('billstart').value.slice(0,10);Object.keys(data).forEach(render);propagateTimes(false);drawTimeline();updateConfirmBanner()}function save(){const t=window.SaveTerminal;t.begin('SAVE REPORT');try{t.line('> Collecting report data...');const payload=JSON.stringify(state());t.line('[OK] Report data serialized.');t.line('> Writing to browser storage...');localStorage.setItem('dailyReportV1',payload);if(localStorage.getItem('dailyReportV1')!==payload)throw Error('Storage verification failed.');t.line('[OK] Local save verified.');t.line('Destination: this browser / this device.');t.success()}catch(e){t.fail('Local save failed. Your changes have not been confirmed saved.');console.error(e)}}function exportJSON(){const t=window.SaveTerminal;t.begin('EXPORT JSON');let url;try{t.line('> Collecting report data...');const payload=JSON.stringify(state(),null,2);t.line('[OK] JSON backup created.');const blob=new Blob([payload],{type:'application/json'}),a=document.createElement('a');url=URL.createObjectURL(blob);a.href=url;a.download=backupFilename();t.line('File: '+a.download);document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),2000);t.line('[OK] Download request sent to browser.');t.line('Complete the save in your browser if prompted.');t.success()}catch(e){if(url)URL.revokeObjectURL(url);t.fail('JSON export failed. Please try again.');console.error(e)}}function importJSON(e){const f=e.target.files[0];if(!f)return;const reader=new FileReader();reader.onload=()=>{try{load(JSON.parse(reader.result));alert('復元しました')}catch(err){alert('読み込みに失敗しました')}};reader.readAsText(f)}function newDoc(){if(!confirm('入力中の内容を新規作成で初期化しますか？ 保存が必要ならキャンセルしてください。'))return;localStorage.removeItem('dailyReportV1');location.reload()}
+function parseDT(v){return v?new Date(v):null}function timeMinutes(v){const p=(v||'').split(':').map(Number);return p.length===2?p[0]*60+p[1]:0}function withinNight(m){const s=timeMinutes($('nightstart').value),e=timeMinutes($('nightend').value);return s<e?(m>=s&&m<e):(m>=s||m<e)}function calc(){const a=parseDT($('billstart').value),b=parseDT($('billend').value);if(!a||!b||b<=a)return null;let day=0,night=0;for(let t=a.getTime();t<b.getTime();){let next=Math.min(b.getTime(),t+60000),d=new Date(t),m=d.getHours()*60+d.getMinutes();if(withinNight(m))night+=(next-t)/60000;else day+=(next-t)/60000;t=next}const gross=day+night,enabled=$('breakEnabled').checked,raw=$('breakMinutes').value,rest=enabled?Number(raw):0;
+const error=enabled&&(raw.trim()===''||!Number.isInteger(rest)||rest<0)?'休憩時間は0以上の整数（分）で入力してください。':rest>gross?'休憩時間が開始～終了の時間を超えています。':'';
+return {day,night,gross,breakMinutes:rest,total:error?null:gross-rest,breakError:error}}
+function adjustBreakMinutes(delta){if(!$('breakEnabled').checked)return;const raw=Number($('breakMinutes').value);$('breakMinutes').value=String(Math.max(0,(Number.isFinite(raw)?raw:0)+delta));drawTimeline();}
+function breakMinuteKey(event){if(event.key==='ArrowUp'||event.key==='ArrowDown'){event.preventDefault();adjustBreakMinutes(event.key==='ArrowUp'?5:-5);}}
+function updateBreakControls(){const off=!$('breakEnabled').checked;$('breakMinutes').disabled=off;document.querySelectorAll('[data-rest-step]').forEach(button=>button.disabled=off);drawTimeline();}
+function selectedDay(){const raw=$('timelineDate').value||($('billstart').value||'').slice(0,10)||$('date').value;return raw}
+function timelineDateTime(day,minute){const d=new Date(day+'T00:00:00');d.setMinutes(minute);return d}
+function drawTimeline(){
+ const c=calc(),a=parseDT($('billstart').value),b=parseDT($('billend').value),day=selectedDay();
+ let out='',zero=day?timelineDateTime(day,0):null,z=zero?zero.getTime():0;
+ // 24時間表示上では終了が開始より左でも翌日終了として計上する。
+ // 実際の計上時間はdatetime-localの年月日を使用する。
+ for(let i=0;i<288;i++){
+   const m=i*5, sm=a?a.getHours()*60+a.getMinutes():null, em=b?b.getHours()*60+b.getMinutes():null;
+   let active=false;
+   if(a&&b&&b>a){
+     const dur=(b.getTime()-a.getTime())/60000;
+     if(dur>=1440)active=true;
+     else if(em>sm)active=m>=sm&&m<em;
+     else active=m>=sm||m<em;
+   }
+   const kind=active?(withinNight(m)?'night':'day'):'outside';
+   out+=`<div class="segment ${kind}" style="flex:1" title="${String(Math.floor(i/12)).padStart(2,'0')}:${String(i%12*5).padStart(2,'0')} ${active?'計上対象':'時間外'}"></div>`;
+ }
+ const marks=[['start',a?a.getHours()*60+a.getMinutes():480],['nightstart',timeMinutes($('nightstart').value)],['nightend',timeMinutes($('nightend').value)],['end',b?b.getHours()*60+b.getMinutes():1020]];
+ const names={start:'開始',nightstart:'夜間開始',nightend:'夜間終了',end:'終了'};
+ for(const [name,m] of marks){
+   if(!zero)continue;
+   const value=name==='start'?$('billstart').value:name==='end'?$('billend').value:$(name).value;
+   const clock=name==='start'||name==='end'?(value||'').slice(11,16):value;
+   out+=`<div class="time-handle ${name}" role="slider" tabindex="0" aria-label="${names[name]}" aria-valuemin="0" aria-valuemax="1440" aria-valuenow="${Math.round(m)}" data-handle="${name}" style="left:${(m/1440*100).toFixed(4)}%" title="${names[name]} ${value}"><span class="handle-label"><small>${names[name]}</small><strong>${clock}</strong></span></div>`;
+ }
+ $('timeline').innerHTML=out;
+ const fmt=n=>{const total=Math.round(n),hours=Math.floor(total/60),minutes=String(total%60).padStart(2,'0');return `<div class="duration-value">${hours}<small>時間</small>${minutes}<small>分</small></div>`};
+ $('breakError').textContent=c?.breakError||'';
+ if(typeof renderLabor==='function')renderLabor();
+ $('stats').innerHTML=c?`<b class="range-total"><span>開始 ～ 終了</span>${a?localDateTime(a).slice(11,16):''} ～ ${b?localDateTime(b).slice(11,16):''}</b><b class="day-total"><span>昼間</span>${fmt(c.day)}</b><b class="night-total"><span>夜間</span>${fmt(c.night)}</b><b class="all-total"><span>${$('breakEnabled').checked?'合計（休憩控除後）':'合計'}</span>${c.breakError?'—':fmt(c.total)}</b>`:'<b>計上開始・終了を入力してください</b>';
+}
+let dragging=null;
+function setHandleMinute(name,minute){
+ minute=Math.max(0,Math.min(1440,minute));
+ if(name==='nightstart'||name==='nightend'){
+   const m=minute%1440;$(name).value=`${String(Math.floor(m/60)).padStart(2,'0')}:${String(m%60).padStart(2,'0')}`;
+ }else{
+   // 基準日は開始の年月日。スライダーは24時間の時計として動作する。
+   // 例：開始22:00・終了04:00 → 終了は自動的に翌日04:00。
+   const base=($('billstart').value||'').slice(0,10)||selectedDay();
+   if(!base)return;
+   const m=minute%1440;
+   const clock=`${String(Math.floor(m/60)).padStart(2,'0')}:${String(m%60).padStart(2,'0')}`;
+   if(name==='start'){
+     $('billstart').value=base+'T'+clock;
+     const endClock=($('billend').value||'').slice(11,16)||'17:00';
+     const endMinute=timeMinutes(endClock);
+     const endDate=timelineDateTime(base,endMinute<=m?1440+endMinute:endMinute);
+     $('billend').value=localDateTime(endDate);
+   }else{
+     const startMinute=timeMinutes(($('billstart').value||'').slice(11,16)||'08:00');
+     const endDate=timelineDateTime(base,m<=startMinute?1440+m:m);
+     $('billend').value=localDateTime(endDate);
+   }
+ }
+ markUnconfirmed();propagateTimes();drawTimeline();
+}
+function dragTime(ev){
+ if(!dragging)return;
+ const r=$('timeline').getBoundingClientRect(),ratio=Math.max(0,Math.min(1,(ev.clientX-r.left)/r.width));
+ setHandleMinute(dragging,Math.round(ratio*288)*5);
+}
+$('timeline').addEventListener('pointerdown',ev=>{
+ const handle=ev.target.closest('.time-handle');
+ if(handle){dragging=handle.dataset.handle}else{
+   const r=$('timeline').getBoundingClientRect(),pos=Math.max(0,Math.min(1,(ev.clientX-r.left)/r.width)),m=pos*1440;
+   const a=parseDT($('billstart').value),b=parseDT($('billend').value);
+   const marks=[['start',a?a.getHours()*60+a.getMinutes():0],['nightstart',timeMinutes($('nightstart').value)],['nightend',timeMinutes($('nightend').value)],['end',b?b.getHours()*60+b.getMinutes():1440]];
+   dragging=marks.filter(x=>x[1]!=null&&x[1]>=0&&x[1]<=1440).sort((x,y)=>Math.abs(x[1]-m)-Math.abs(y[1]-m))[0]?.[0]||'start';
+ }
+ $('timeline').setPointerCapture(ev.pointerId);dragTime(ev);
+});
+$('timeline').addEventListener('pointermove',ev=>{if(dragging)dragTime(ev)});
+$('timeline').addEventListener('pointerup',()=>dragging=null);
+$('timeline').addEventListener('pointercancel',()=>dragging=null);
+$('timeline').addEventListener('keydown',ev=>{
+ const h=ev.target.closest('.time-handle');if(!h||!['ArrowLeft','ArrowRight'].includes(ev.key))return;
+ ev.preventDefault();const name=h.dataset.handle,minute=(name.startsWith('night')?timeMinutes($(name).value):timeMinutes(($(name==='start'?'billstart':'billend').value||'').slice(11,16)));
+ if(Number.isFinite(minute))setHandleMinute(name,minute+(ev.key==='ArrowRight'?5:-5));
+ $('timeline').querySelector(`[data-handle="${name}"]`)?.focus();
+});
+function markUnconfirmed(){
+ if($('confirmed').value==='yes'){
+   $('confirmed').value='no';
+ }
+ updateConfirmBanner();
+}
+function updateConfirmBanner(){
+ const yes=$('confirmed').value==='yes';
+ const el=$('confirmBanner');if(!el)return;
+ el.style.background=yes?'#e5f4e9':'#fff7dc';el.style.color=yes?'#175c35':'#72510b';
+ el.textContent=yes?'確定済み：共通計上時刻を確定しました。個別訂正は保持しています。':'未確定：スライダー操作は即時反映されます。確認後に「計上時刻を確定」を押してください。';
+}
+function propagateTimes(shouldRender=true){
+ const sh=$('billstart').value.slice(11,16),eh=$('billend').value.slice(11,16);
+ if(!baseOverrides.baseout)$('baseout').value=sh;
+ if(!baseOverrides.basein)$('basein').value=eh;
+ for(const k of ['works','people'])for(const r of data[k]){
+   if(!r._overrideStart)r.start=sh;
+   if(!r._overrideEnd)r.end=eh;
+ }
+ if(shouldRender){render('works');render('people')}
+}
+function resetIndividualTimes(){
+ if(!confirm('基地発・基地着・全作業項目・全作業員の個別訂正を解除して、スライダー時刻に揃えますか？'))return;
+ baseOverrides={baseout:false,basein:false};
+ for(const k of ['works','people'])for(const r of data[k]){r._overrideStart=false;r._overrideEnd=false}
+ propagateTimes();
+}
+function confirmTimes(){
+ const a=parseDT($('billstart').value),b=parseDT($('billend').value);
+ if(!a||!b||b<=a){alert('計上開始・終了の日時を正しく入力してください。');return}
+ propagateTimes();
+ $('confirmed').value='yes';updateConfirmBanner();
+ alert('計上時刻を確定しました。個別に訂正した欄はそのまま保持しています。');
+}
+function syncTime(){markUnconfirmed();if(!$('timelineDate').value&&$('billstart').value)$('timelineDate').value=$('billstart').value.slice(0,10);propagateTimes();drawTimeline()}
+function shiftEnd(delta){markUnconfirmed();let d=parseDT($('billend').value);if(!d)return alert('計上終了を先に入力してください');d=new Date(d.getTime()+delta*60000);$('billend').value=localDateTime(d);propagateTimes();drawTimeline()}
+function localDateTime(d){const p=n=>String(n).padStart(2,'0');return `${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())}T${p(d.getHours())}:${p(d.getMinutes())}`}
+function applyEnd(){const end=$('billend').value;if(!end)return alert('計上終了を入力してください');const hh=end.slice(11,16);data.works.forEach(r=>{if(!r._overrideEnd)r.end=hh});render('works')}
+function table(head,rows,min=0){return `<table><thead><tr>${head.map(x=>`<th>${esc(x)}</th>`).join('')}</tr></thead><tbody>${Array.from({length:Math.max(min,rows.length)},(_,i)=>`<tr>${(rows[i]||head.map(()=>'' )).map(x=>`<td>${esc(x)||'　'}</td>`).join('')}</tr>`).join('')}</tbody></table>`}function fmtTime(v){return v?String(v).slice(11,16):''}function printDoc(){return exportOriginalPDF("both")}
+(function init(){try{personMaster=JSON.parse(localStorage.getItem('dailyReportPersonMasterV1')||'[]')}catch(e){personMaster=[]}if(!personMaster.length){personMaster=[...SAMPLE_PEOPLE];persistPersonMaster()}renderPersonMaster();let now=new Date(),p=n=>String(n).padStart(2,'0');$('date').value=`${now.getFullYear()}-${p(now.getMonth()+1)}-${p(now.getDate())}`;data.works=[{...templates.works}];data.people=[{...templates.people}];data.crews=[{...templates.crews}];data.vehicles=[{...templates.vehicles}];data.materials=[{...templates.materials}];data.waste=[{...templates.waste}];data.prices=[{...templates.prices}];let saved=localStorage.getItem('dailyReportV1');if(saved){try{load(JSON.parse(saved))}catch(e){}}else{$('billstart').value=$('date').value+'T08:00';$('billend').value=$('date').value+'T17:00';$('timelineDate').value=$('date').value;Object.keys(data).forEach(render);propagateTimes();drawTimeline();updateConfirmBanner()}})();
+</script><script src="assets/pdf-lib.min.js"></script><script src="assets/fontkit.umd.min.js"></script><script src="pdf-output.js"></script></body></html>
