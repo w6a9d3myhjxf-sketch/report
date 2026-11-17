@@ -19,9 +19,13 @@ input[type="time"]::-webkit-datetime-edit,input[type="datetime-local"]::-webkit-
 }
 @media(pointer:coarse){input[type="time"],input[type="datetime-local"]{font-size:16px;}}
 
-/* Ver.52: compact only the worker start/end controls. */
-.worker-table col:nth-child(3){width:112px!important;}
-.worker-table{min-width:1076px;}
-.worker-table .worker-time-label{max-width:96px;margin-inline:auto;line-height:1.2;}
+/* Ver.53: narrower worker time controls; keep legible 16px time text. */
+.worker-table col:nth-child(3){width:96px!important;}
+.worker-table{min-width:1060px;}
+.worker-table .worker-time-label{max-width:80px;margin-inline:auto;line-height:1.2;}
 .worker-table .stack{gap:4px;}
-.worker-table input[type="time"]{width:100%;max-width:96px;height:34px;min-height:34px;padding:4px;font-size:16px;line-height:normal;}
+.worker-table input[type="time"]{width:80px;max-width:100%;height:32px;min-height:32px;padding:3px 2px;font-size:16px;line-height:normal;}
+
+/* Worker time confirmation selection */
+.worker-table .worker-time-check{display:flex;align-items:center;gap:4px;font-size:11px;white-space:nowrap;margin:0 0 5px;min-height:28px;}
+.worker-table .worker-time-check input[type="checkbox"]{width:18px;height:18px;min-width:18px;margin:0;flex:none;}
